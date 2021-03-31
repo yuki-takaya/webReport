@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="mobile.css" type="text/css">
+    <link rel="stylesheet" href="pc.css" type="text/css" media="screen and (min-width:740px)">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="reportCss.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script type="text/javascript" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="reportJs.js"></script>
+  </head>
+  <body>
+    <center>
+      <form id="reportForm" name="reportForm">     
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+              <!-- Title -->
+              <span id="title" class="title mdl-layout-title">{{lblTitle}}</span>
+              <!-- Add spacer, to align navigation to the right -->
+              <div class="mdl-layout-spacer"></div>
+              <!-- Navigation. We hide it in small screens. -->
+              <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <div id="btn">
+                  <!-- ダウンロード -->
+                  <button type="button" id="save" v-on:click="save" class="btncommon mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">{{lblsave}}</button>
+                  <!-- ダウンロード -->
+                  <button type="button" id="preview" v-on:click="preview" class="btncommon mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">{{lblpreview}}</button>
+                </div>
+              </nav>
+            </div>
+          </header>
+          <main class="mdl-layout__content">
+            <div id="screen" style="display:table;text-align:center;">
+              <div class="table-txt-align">
+                <div class="txt-margin mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <!-- タイトル -->
+                    <input class="mdl-textfield__input" type="text" id="interviewName" name="interviewName" v-model="interviewName">
+                    <label class="mdl-textfield__label" for="interviewName">{{lblinterviewName}}</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <!-- 面談日 -->
+                  <input class="mdl-textfield__input" type="text" id="interviewDate" name="interviewDate" v-model="interviewDate">
+                  <label class="mdl-textfield__label" for="interviewDate">{{lblinterviewDate}}</label>
+                </div>
+              </div>
+              <div class="table-txt-align">
+                <div class="txt-margin mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <!-- 対象者 -->
+                  <input class="mdl-textfield__input" type="text" id="interviewMember" name="interviewMember" v-model="interviewMember">
+                  <label class="mdl-textfield__label" for="interviewMember">{{lblinterviewMember}}</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <!-- 面談者 -->
+                  <input class="mdl-textfield__input" type="text" id="interviewer" name="interviewer" v-model="interviewer">
+                  <label class="mdl-textfield__label" for="interviewer">{{lblinterviewer}}</label>
+                </div>
+              </div>
+              <div class="table-txt-align">
+                <div class="txt-margin mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <!-- 報告日 -->
+                    <input class="mdl-textfield__input" type="text" id="reportDate" name="reportDate" v-model="reportDate">
+                    <label class="mdl-textfield__label" for="reportDate">{{lblreportDate}}</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <!-- 報告者 -->
+                  <input class="mdl-textfield__input" type="text" id="reporter" name="reporter" v-model="reporter">
+                  <label class="mdl-textfield__label" for="reporter">{{lblreporter}}</label>
+                </div>
+              </div>
+              <div class="table-txt-align">
+                <!-- 経緯 -->
+                <div class="txt-margin cp_iptxt mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <textarea wrap="soft" class="rptstory mdl-textfield__input" id="reportStory" name="reportStory" v-model="reportStory"></textarea>
+                  <label class="mdl-textfield__label" for="reportContents">{{lblstory}}</label>
+                </div>
+              </div>
+              <div class="table-txt-align">
+                <!-- 内容 -->
+                <div class="txt-margin cp_iptxt mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <textarea wrap="soft" class="rptcontents mdl-textfield__input" id="reportContents" name="reportContents" v-model="reportContents"></textarea>
+                  <label class="mdl-textfield__label" for="reportContents">{{lblreportContents}}</label>
+                </div>
+              </div>
+              <div class="table-txt-align">
+                <!-- 所感 -->
+                <div class="txt-margin cp_iptxt mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <textarea wrap="soft" class="rptcontents mdl-textfield__input" id="feeling" name="feeling" v-model="feeling"></textarea>
+                  <label class="mdl-textfield__label" for="feeling">{{lblfeeling}}</label>
+                </div>
+              </div>
+              <BR>
+              <div>&copy; yuki-takaya</div>
+            </div> 
+          </main>
+        </div>
+        <script type="text/javascript" src="reportVuejs.js"></script>
+      </form>
+    </center>
+    <script type="text/javascript" src="modalJs.js"></script>
+  </body>
+</html>
